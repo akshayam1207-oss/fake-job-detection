@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📊 Analysis Result</h1>
+
+<div class="result-box">
+
+<h2>
+Risk Level:
+<span class="risk-{{ result.color }}">
+{{ result.risk_level }}
+</span>
+</h2>
+
+<p>Risk Score: {{ result.risk_score }}/6</p>
+
+</div>
+
+<h3>Red Flags Found:</h3>
+
+<div class="flags">
+
+{% for category, keywords in result.flags.items() %}
+
+{% if keywords %}
+
+<div class="flag-item">
+
+<strong>{{ category.replace('_',' ').title() }}:</strong>
+
+{{ ', '.join(keywords) }}
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+</div>
+
+<a href="/" class="btn-back">
+← Check Another Job
+</a>
+
+</div>
+
+</body>
+</html>

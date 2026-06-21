@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Job Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Fake Job Detection System</h1>
+        <p>Paste a job posting below to check if it's legitimate or fake</p>
+
+        <form method="POST" action="/analyze">
+            <textarea name="job_text" placeholder="Paste job posting here..." required></textarea>
+
+            <button type="submit">
+                Analyze Job Posting
+            </button>
+        </form>
+
+    </div>
+</body>
+</html>
